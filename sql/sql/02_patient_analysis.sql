@@ -20,7 +20,7 @@ WHERE insurance_provider IS NOT NULL
 GROUP BY insurance_provider
  HAVING COUNT(insurance_provider) > 10
 ORDER BY insurance_provider_count DESC;
-- -- Finding:
+-- Finding:
 -- WellnessCorp had the highest patient volume with 38 covered patients.
 -- Five other insurance providers also met the threshold of more than 10 patients:
 -- PulseSecure, CarePlus, MedCare Plus, HealthFirst, and MediShield.
