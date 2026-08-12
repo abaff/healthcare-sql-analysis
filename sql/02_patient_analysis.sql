@@ -28,7 +28,15 @@ ORDER BY insurance_provider_count DESC;
 -- Question 2:
 -- Which patients have missing insurance information,
 -- and what other contact information is also missing for those patients?
+-- Query:
+SELECT patient_id, first_name, last_name, email, contact_number
+FROM patients
+WHERE insurance_provider IS NULL;
 
+-- Finding:
+-- Among patients without a documented insurance provider, only patient P143
+-- was also missing an email address. All patients in this group had a
+-- contact number documented.
 
 -- Question 3:
 -- How many patients registered each year,
