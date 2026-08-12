@@ -26,3 +26,24 @@ WellnessCorp had the highest patient volume with 38 covered patients. Five other
 **Query Results:**
 
 ![Question 1 Insurance Provider Analysis](screenshots/question_1_insurance_provider_analysis.png)
+
+
+### Question 2: Missing Insurance & Contact Information
+
+**Business Question:**  
+Identify patients without a documented insurance provider and review their contact information to determine whether additional contact data is missing.
+
+**SQL Query:**
+
+```sql
+SELECT patient_id, first_name, last_name, email, contact_number
+FROM patients
+WHERE insurance_provider IS NULL;
+```
+
+**Finding:**  
+Among patients without a documented insurance provider, only patient P143 was also missing an email address. All patients in this group had a contact number documented.
+
+**Query Results:**
+
+![Question 2 Missing Insurance Analysis](screenshots/question_2_missing_insurance_analysis.png)
