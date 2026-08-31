@@ -132,4 +132,29 @@ Patient 'P012' generated the highest total billed amount at $30053.08.
 
 **Query Results:**
 
-![Question 6 Total Billed Amounts](screenshots/question_6_total_billed_amounts.png)
+![Question 6 Total Billed Amounts](screenshots/question_6_total_billed_amounts.png)                                                                                                           
+### Question 7: Highest Average Treatment Cost Among Patients With Multiple Appointments
+
+**Business Question:**  
+For patients with multiple appointments, which patients have the highest average treatment cost?
+
+**SQL Query:**
+
+```sql
+SELECT AVG(cost) AS Average_cost,
+       COUNT(DISTINCT appointment_id) AS count_of_appointments,
+       a.patient_id
+FROM appointments AS a
+LEFT JOIN treatments
+USING (appointment_id)
+GROUP BY patient_id
+HAVING COUNT(DISTINCT appointment_id) > 1
+ORDER BY Average_cost DESC;
+```
+
+**Finding:**  
+Patient P044 had the highest average treatment cost at $4,662.05 across 2 appointments.
+
+**Query Results:**
+
+![Question 7 Average Treatment Cost](screenshots/question_7_average_treatment_cost.png)
