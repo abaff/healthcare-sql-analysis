@@ -88,4 +88,26 @@ Patients with more than one appointment were identified by grouping appointments
 
 **Query Results:**
 
-![Question 4 Multiple Appointments](screenshots/question_4_multiple_appointments.png)
+![Question 4 Multiple Appointments](screenshots/question_4_multiple_appointments.png)                                          
+
+### Question 5: Patients Without Appointments
+
+**Business Question:**  
+Which patients have never had an appointment?
+
+**SQL Query:**
+
+```sql
+SELECT p.first_name, p.last_name, a.appointment_id, patient_id
+FROM patients AS p
+LEFT JOIN appointments AS a
+USING (patient_id)
+WHERE a.appointment_id IS NULL;
+```
+
+**Finding:**  
+Patients with no matching appointment record were identified using a LEFT JOIN between the patients and appointments tables and filtering for NULL appointment IDs.
+
+**Query Results:**
+
+![Question 5 Patients Without Appointments](screenshots/question_5_patients_without_appointments.png)
