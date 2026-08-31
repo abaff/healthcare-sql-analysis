@@ -128,7 +128,7 @@ ORDER BY total_billed_amount DESC;
 ```
 
 **Finding:**  
-Patient [PATIENT ID] generated the highest total billed amount at $[AMOUNT].
+Patient 'P012' generated the highest total billed amount at $30053.08.
 
 **Query Results:**
 
