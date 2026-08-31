@@ -56,7 +56,16 @@ ORDER BY count_of_registrations DESC;
 -- Question 4:
 -- Which patients have had multiple appointments,
 -- and how many appointments has each of those patients had?
+-- Query:
+SELECT COUNT(appointment_id) AS Num_of_appointments,
+       patient_id
+FROM appointments
+GROUP BY patient_id
+HAVING COUNT(appointment_id) > 1;
 
+-- Finding:
+-- Patients with more than one appointment were identified by grouping
+-- appointments by patient_id and filtering for appointment counts greater than 1.
 
 -- Question 5:
 -- Which patients have never had an appointment?
