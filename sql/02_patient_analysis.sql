@@ -41,6 +41,16 @@ WHERE insurance_provider IS NULL;
 -- Question 3:
 -- How many patients registered each year,
 -- and which year had the highest number of new patient registrations?
+-- Query:
+SELECT COUNT(registration_date) AS count_of_registrations,
+       YEAR(registration_date) AS Year_registered
+FROM patients
+GROUP BY YEAR(registration_date)
+ORDER BY count_of_registrations DESC;
+
+-- Finding:
+-- 2022 had the highest number of new patient registrations,
+-- with 42 patients registered.
 
 
 -- Question 4:
