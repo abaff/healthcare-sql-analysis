@@ -69,7 +69,20 @@ HAVING COUNT(appointment_id) > 1;
 
 -- Question 5:
 -- Which patients have never had an appointment?
+-- Query:
+-- Question 5:
+-- Which patients have never had an appointment?
 
+-- Query:
+SELECT p.first_name, p.last_name, a.appointment_id, patient_id
+FROM patients AS p
+LEFT JOIN appointments AS a
+USING (patient_id)
+WHERE a.appointment_id IS NULL;
+
+-- Finding:
+-- Patients with no matching appointment record were identified using a LEFT JOIN
+-- between the patients and appointments tables and filtering for NULL appointment IDs.
 
 -- Question 6:
 -- Which patients have generated the highest total billed amounts?
