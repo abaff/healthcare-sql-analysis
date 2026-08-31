@@ -110,4 +110,26 @@ Patients with no matching appointment record were identified using a LEFT JOIN b
 
 **Query Results:**
 
-![Question 5 Patients Without Appointments](screenshots/question_5_patients_without_appointments.png)
+![Question 5 Patients Without Appointments](screenshots/question_5_patients_without_appointments.png)                            
+
+### Question 6: Highest Total Billed Amounts by Patient
+
+**Business Question:**  
+Which patients have generated the highest total billed amounts?
+
+**SQL Query:**
+
+```sql
+SELECT patient_id,
+       SUM(amount) AS total_billed_amount
+FROM billing
+GROUP BY patient_id
+ORDER BY total_billed_amount DESC;
+```
+
+**Finding:**  
+Patient [PATIENT ID] generated the highest total billed amount at $[AMOUNT].
+
+**Query Results:**
+
+![Question 6 Total Billed Amounts](screenshots/question_6_total_billed_amounts.png)
