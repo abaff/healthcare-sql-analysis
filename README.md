@@ -67,4 +67,25 @@ ORDER BY count_of_registrations DESC;
 
 **Query Results:**
 
-![Question 3 Patient Registrations by Year](screenshots/question_3_patient_registrations_by_year.png)
+![Question 3 Patient Registrations by Year](screenshots/question_3_patient_registrations_by_year.png)                          
+### Question 4: Patients With Multiple Appointments
+
+**Business Question:**  
+Which patients have had multiple appointments, and how many appointments has each of those patients had?
+
+**SQL Query:**
+
+```sql
+SELECT COUNT(appointment_id) AS Num_of_appointments,
+       patient_id
+FROM appointments
+GROUP BY patient_id
+HAVING COUNT(appointment_id) > 1;
+```
+
+**Finding:**  
+Patients with more than one appointment were identified by grouping appointments by patient and filtering for appointment counts greater than one.
+
+**Query Results:**
+
+![Question 4 Multiple Appointments](screenshots/question_4_multiple_appointments.png)
